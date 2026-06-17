@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Washer & Dryer Rentals in Denver. From $40/Month | Triple 8 Rentals</title>
+    <meta name="description" content="Stress-free washer and dryer rentals for Denver families. Plans from $40/month with free delivery, installation, and maintenance included.">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
+        
+        header { background: #ffffff; padding: 0.5rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .logo img { height: 88px; width: auto; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #1e3a8a; text-decoration: none; font-weight: 700; }
+        .phone-btn { background: #10b981; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: bold; text-decoration: none; color: white; display: flex; align-items: center; gap: 8px; }
+
+        .section { padding: 5rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #1e3a8a; }
+        .section-subtitle { text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #64748b; }
+        
+        /* 1. Hero Formatting Updates */
+        .hero { 
+            background: linear-gradient(rgba(30, 58, 138, 0.75), rgba(23, 37, 84, 0.75)), url('background.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            min-height: 85vh; 
+            display: flex; 
+            align-items: center; 
+            text-align: left; 
+            color: white; 
+            padding-top: 100px; 
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; line-height: 1.1; font-weight: 800; } /* Largest Headline */
+        .hero .subheadline { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 700; opacity: 1; } /* Smaller bold subheadline */
+        .hero-list { list-style: none; margin-bottom: 1.5rem; }
+        .hero-list li { font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 300; display: flex; align-items: center; gap: 12px; } /* Lightweight Bullets */
+        .hero-list i { color: #10b981; font-size: 1.2rem; }
+        
+        /* 1. Bright Accent CTA Button */
+        .cta-main { 
+            display: inline-block;
+            background: #f59e0b; /* Bright Amber Accent */
+            color: #1e293b; 
+            padding: 1.2rem 2.5rem; 
+            border-radius: 50px; 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            text-decoration: none; 
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+        .cta-main:hover { background: #fbbf24; transform: translateY(-3px); }
+        .hero-tiny-line { font-size: 0.85rem; opacity: 0.9; font-weight: 400; }
+
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .pricing-card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid #1e3a8a; text-align: center; display: flex; flex-direction: column; }
+        .price { font-size: 3rem; font-weight: 800; color: #10b981; }
+        .benefits-list { list-style: none; margin: 1.5rem 0; text-align: left; flex-grow: 1; }
+        .benefits-list li { margin-bottom: 0.6rem; padding-left: 30px; position: relative; }
+        .benefits-list li::before { content: '✓'; position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem; }
+        
+        .plan-select-btn { background: #1e3a8a; color: white; padding: 1rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
+        .plan-select-btn:hover { background: #10b981; transform: translateY(-3px); }
+
+        .discount-container { background: #fef3c7; border: 1px solid #f59e0b; padding: 2rem; border-radius: 20px; margin-top: 3rem; color: #92400e; }
+        .discount-container h3 { margin-bottom: 1rem; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        .discount-list { list-style: none; text-align: left; max-width: 600px; margin: 0 auto; }
+        .discount-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .discount-list li::before { content: "•"; position: absolute; left: 0; font-weight: bold; }
+
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+        .faq-question { padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; color: #1e3a8a; text-align: left; }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; background: #f8fafc; text-align: left; line-height: 1.8; }
+        .faq-item.active .faq-answer { padding: 1.5rem; max-height: 600px; }
+        .faq-item.active .chevron { transform: rotate(180deg); }
+        .chevron { transition: transform 0.3s ease; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+        .contact-form { background: #1e293b; padding: 2.5rem; border-radius: 20px; color: white; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border-radius: 8px; border: none; background: #334155; color: white; font-size: 1rem; }
+
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            .logo img { height: 60px; } 
+            .hero { text-align: center; padding-top: 100px; min-height: 75vh; } /* Keeps CTA above fold on mobile */
+            .hero h1 { font-size: 2.4rem; }
+            .hero .subheadline { font-size: 1.2rem; }
+            .hero-list li { justify-content: center; font-size: 1rem; }
+            .cta-main { font-size: 1.2rem; padding: 1rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="logo.jpg" alt="Triple 8 Rental Logo"></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:+13033512674" class="phone-btn"><i class="fas fa-phone"></i> (303) 351-2674</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Stress-Free Washer & Dryer Rentals for Denver Families</h1>
+            <p class="subheadline">Never visit a laundromat again. We deliver, install, and maintain. You just do laundry.</p>
+            
+            <ul class="hero-list">
+                <li><i class="fas fa-check-circle"></i> Plans from $40/month</li>
+                <li><i class="fas fa-check-circle"></i> Free delivery & installation</li>
+                <li><i class="fas fa-check-circle"></i> Maintenance included</li>
+                <li><i class="fas fa-check-circle"></i> Local Denver support</li>
+            </ul>
+
+            <p style="font-weight: bold; font-style: italic; margin-bottom: 1.5rem;">Denver families trust us with their laundry — no laundromats, no hauling, no stress.</p>
+            
+            <a href="#contact" class="cta-main">Check Availability</a>
+            <p class="hero-tiny-line">Serving the Denver Metro area with fast delivery — same-day when available</p>
+        </div>
+    </section>
+
+    <section class="section" id="pricing" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Pricing & Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Washer Only</h3>
+                    <div class="price">$40<small style="font-size: 1rem; color: #64748b;">/mo</small></div>
+                    <ul class="benefits-list">
+                        <li>Top-loading washer</li>
+                        <li>Standard washing capacity</li>
+                        <li>Free delivery & installation</li>
+                        <li>Maintenance included</li>
+                        <li>Energy efficient</li>
+                    </ul>
+                    <button class="plan-select-btn" onclick="selectPlan('Washer')">Select Plan</button>
+                </div>
+                <div class="pricing-card" style="border: 3px solid #10b981; transform: scale(1.05);">
+                    <h3>Washer & Dryer Set</h3>
+                    <div class="price">$65<small style="font-size: 1rem; color: #64748b;">/mo</small></div>
+                    <ul class="benefits-list">
+                        <li>Free delivery & installation</li>
+                        <li>Maintenance included</li>
+                        <li>All hoses & vents included</li>
+                        <li>Energy efficient</li>
+                    </ul>
+                    <button class="plan-select-btn" style="background:#10b981;" onclick="selectPlan('Set')">Select Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Dryer Only</h3>
+                    <div class="price">$40<small style="font-size: 1rem; color: #64748b;">/mo</small></div>
+                    <ul class="benefits-list">
+                        <li>High-efficiency electric dryer</li>
+                        <li>Standard drying capacity</li>
+                        <li>Free delivery & installation</li>
+                        <li>Maintenance included</li>
+                        <li>Energy efficient</li>
+                    </ul>
+                    <button class="plan-select-btn" onclick="selectPlan('Dryer')">Select Plan</button>
+                </div>
+            </div>
+            
+<div class="discount-container">
+  <h3><i class="fas fa-tags"></i> Available Discounts</h3>
+
+  <ul class="discount-list">
+    <li>
+      <strong>AutoPay Discount.</strong>
+      Save $5/month with automatic payments
+    </li>
+    <li>
+      <strong>12-Month Term Discount.</strong>
+      Save $5/month with a 12-month agreement
+    </li>
+  </ul>
+
+  <p class="discount-note">
+    <em>Discounts can be combined. Save up to $10/month.</em>
+  </p>
+</div>
+
+        </div>
+    </section>
+
+    <section class="section" id="requirements">
+        <div class="container">
+            <h2 class="section-title">Rental Requirements</h2>
+            <p class="section-subtitle">What you need to know before renting</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; border-left: 5px solid #1e3a8a;">
+                    <h4>6 Month Minimum Term</h4>
+                    <p>All rental agreements require a minimum commitment of 6 months. After the initial 6 months, your agreement will convert to a month-to-month arrangement.</p>
+                </div>
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; border-left: 5px solid #1e3a8a;">
+                    <h4>Payment Method</h4>
+                    <p>All payments must be made via debit or credit card. We accept all major cards including Visa, Mastercard, American Express, and Discover.</p>
+                </div>
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; border-left: 5px solid #1e3a8a;">
+                    <h4>First Payment</h4>
+                    <p>Your first payment is due on the day of installation. Our technician will confirm successful installation before processing your initial payment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="section" id="faq">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Do you require a credit check? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">No. We do not perform credit checks. Our goal is to make premium appliances accessible to everyone in the Denver area regardless of credit history.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Is there a down payment? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">No. Your first month’s rent is the only thing due at the time of installation. We don't believe in hidden fees or large security deposits.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">How soon can I get my appliances? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">We pride ourselves on speed. Most customers receive their delivery within 24 to 48 hours of completing the request form.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">How much does it cost? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">
+                    Standard rates for a 6-month term: $40/mo per machine or $65/mo for a set. 
+                    <br><br>
+                    <strong>Discounts:</strong> Save $5/mo with AutoPay or by signing a 12-month term. 
+                    <br>
+                    <strong>Short Term:</strong> For agreements under 6 months, single machines are $60/mo and sets are $95/mo.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">How do the rental agreements work? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">Our standard agreement is a 6-month minimum term. After that, your plan automatically converts to month-to-month, allowing you to return the equipment at any time with no penalties.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Is delivery and installation really free? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">Yes, for the vast majority of homes. As long as there is clear access with our dolly to the laundry area, even with stairs, it's free. If there are exceptionally difficult stairs, landings or tight spaces that require a second person for safety, there is a $50 fee (waived if you have someone available to help us navigate the stairs).</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">What brands do you provide? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">We use a rotating inventory of reliable brands like Whirlpool, Kenmore, and GE. While we can't guarantee a specific brand, we do guarantee a high-quality, fully tested unit that works perfectly.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">What if the machine stops working? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">Maintenance is 100% free for the life of your rental. If a machine has issues, we will repair or replace it within 3 business days at no cost to you. (Covers normal wear and tear).</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">What payment methods do you accept? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">We accept all major credit and debit cards, including Visa, Mastercard, American Express, and Discover.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">What if I move? <i class="fas fa-chevron-down chevron"></i></div>
+                <div class="faq-answer">If you move within our Denver service area, we can help relocate your machines for a small transfer fee. If you move outside our area, you can simply return the machines at the end of your current month (standard term rules apply).</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+        <div class="container">
+            <style>
+                .contact-grid-swapped {
+                    display: flex;
+                    flex-direction: column-reverse; 
+                    gap: 3rem;
+                }
+
+                @media (min-width: 769px) {
+                    .contact-grid-swapped {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        flex-direction: row;
+                    }
+                    .form-container { order: 1; }
+                    .info-container { order: 2; }
+                }
+                
+                .form-header-box {
+                    margin-bottom: 1.5rem;
+                }
+            </style>
+
+            <div class="contact-grid-swapped">
+                
+                <div class="info-container">
+                    <p style="margin-bottom: 1.5rem; font-weight: 500; color: #475569;">Serving the Denver Metro area including:</p>
+                    <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-weight: bold; color: #1e3a8a; margin-bottom: 2rem;">
+                        <li>Denver</li><li>Aurora</li><li>Arvada</li><li>Lakewood</li>
+                        <li>Northglenn</li><li>Commerce City</li><li>Westminster</li>
+                        <li>Englewood</li><li>Wheat Ridge</li>
+                    </ul>
+                    
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Contact Info</h3>
+                    <p><strong>Phone:</strong> <a href="tel:+13033512674" style="color:#1e3a8a; text-decoration:none;">(303) 351-2674</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:triple8rent@gmail.com" style="color:#1e3a8a; text-decoration:none;">triple8rent@gmail.com</a></p>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-header-box">
+                        <h2 style="color: #1e3a8a; font-size: 2rem; margin-bottom: 0.5rem;">Check Availability in Your Area</h2>
+                        <p style="font-weight: bold; color: #334155;">Takes less than 2 minutes. No obligation.</p>
+                    </div>
+
+                    <div class="contact-form">
+                        <form action="https://formspree.io/f/mjgkkakn" method="POST" id="rentalForm">
+                            <input type="hidden" name="_next" value="https://triple8rentals.github.io/success.html">
+                            <div class="form-group"><label>Full Name</label><input type="text" name="name" required></div>
+                            <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" required></div>
+                            <div class="form-group"><label>Email Address</label><input type="email" name="email" required></div>
+                            <div class="form-group"><label>Service Address</label><input type="text" name="address" required placeholder="Street, City, Zip"></div>
+                            <div class="form-group"><label>Rental Plan</label>
+                                <select name="plan" id="planSelector">
+                                    <option value="Set">Washer & Dryer Set ($65)</option>
+                                    <option value="Washer">Washer Only ($40)</option>
+                                    <option value="Dryer">Dryer Only ($40)</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>Message (Optional)</label>
+                                <textarea name="message" rows="3" placeholder="Tell us about your needs or ask questions..."></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="background:#10b981; color:white; width:100%; border:none; padding:1rem; font-weight:bold; cursor:pointer; border-radius:8px;">Request Availability</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #0f172a; color: white; padding: 3rem 0; text-align: center;">
+        <p>&copy; 2026 Triple 8 Rental. Professional Appliance Rentals.</p>
+    </footer>
+
+<script>
+        // 1. YOUR EXISTING: Function to handle the plan selection jump
+        function selectPlan(planValue) {
+            document.getElementById('planSelector').value = planValue;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 2. NEW: Redirect Fix (AJAX Submission)
+        // This sends the form data to Formspree silently and then forces the redirect
+        const form = document.getElementById("rentalForm");
+        
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault(); // This stops Formspree from opening their own success page
+            
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+            
+            // Visual feedback for the customer
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // This forces the browser to go to your success page for FREE
+                    window.location.href = "https://triple8rentals.github.io/success.html";
+                } else {
+                    const data = await response.json();
+                    alert("Oops! There was a problem: " + (data.error || "Please try again."));
+                    submitButton.textContent = "Send Rental Request";
+                    submitButton.disabled = false;
+                }
+            } catch (error) {
+                alert("Oops! Network error. Please check your connection.");
+                submitButton.textContent = "Send Rental Request";
+                submitButton.disabled = false;
+            }
+        });
+
+        // 3. YOUR EXISTING: Hero CTA and Nav Smooth Scroll Logic
+        document.querySelectorAll('nav a, header a.phone-btn, .hero a.cta-main').forEach(anchor => {
+            if (anchor.getAttribute('href').startsWith('#')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
